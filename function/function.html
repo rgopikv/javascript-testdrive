@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Functions in Javascript - Gopinath</title>
+	<script type="text/javascript" src="function.js"></script>
+	<script>
+		function callConcatenate( firstname, lastname )
+		{
+			if( "" == firstname || "" == lastname )
+				return alert('firstname and lastname should not be empty / null');
+			
+			var fullname = concatenate( firstname, lastname );
+			this.document.write( fullname );
+		}
+	</script>
+</head>
+<body>
+	<p><b>This Button will call sayHello() in function.js </b></p>
+	<button onclick='sayHello()'>Say Hello</button> 
+	<br />
+
+	<p><b>This Button will call sayHelloWithName() in function.js with the value will get from the text input</b></p>
+	<input type="text" id="txtName" placeholder='Enter your name' /> 
+	<button onclick='sayHelloWithName(txtName.value)'>Say Hello</button> 
+	<p><i><u>Javascript code:</u></i><pre>
+	function sayHelloWithName( myName )
+	{
+		if( "" != myName )
+			alert( 'Hello ' + myName + '!' );
+		else
+			alert( 'Please enter your name!' );
+	}
+	</pre></p>
+
+	<p><b>Function 'return' in JavaScript</b></p>
+	<input type="text" id="txtFirstName" placeholder="Firstname" />
+	<input type="text" id="txtLastName" placeholder="Lastname" />
+	<button onclick="callConcatenate( txtFirstName.value, txtLastName.value)">Concatenate</button>
+	<p><i><u>Javascript code:</u></i><pre>
+	function concatenate( firstname, lastname )
+	{
+		return firstname + ' ' + lastname;	
+	}
+	</pre></p>
+
+	<p><b> 'nested' function in JavaScript. Function with in a function is called nested function.</b></p>
+	<input type="text" id="txtNumber1" placeholder="firstnumber" />
+	<input type="text" id="txtNumber2" placeholder="lastnumber" />
+	<button onclick="txtResult.value = nestedFunction( txtNumber1.value, txtNumber2.value)">Call Nested Function</button>
+	<input type="text" id="txtResult" placeholder="answer" /> 
+	<p><i><u>Javascript code:</u></i><pre>
+	function nestedFunction( a, b )
+	{
+		function square( x )
+		{
+			return x * x;
+		}
+
+		return Math.sqrt( square( a ) + square( b ) );
+	}
+	</pre></p>
+
+	<p><b> Function() Constructor </b></p>
+	<input type="text" id="txtNumber3" placeholder="firstnumber" />
+	<input type="text" id="txtNumber4" placeholder="lastnumber" />
+	<button onclick="txtSum.value = constructorFunction( txtNumber3.value, txtNumber4.value)">Call Function Constructor</button>
+	<input type="text" id="txtSum" placeholder="answer" />
+	<p><i><u>Javascript code:</u></i><pre>
+	var multiplyFunction = new Function( "a", "b", "return a * b;" );
+
+	function constructorFunction( a, b )
+	{
+		return multiplyFunction( a, b );
+	}
+	</pre></p>
+
+	<p><b> Function literal </b></p>
+	<input type="text" id="txtNumber5" placeholder="firstnumber" />
+	<input type="text" id="txtNumber6" placeholder="lastnumber" />
+	<button onclick="txtSum2.value = callFunctoinLiteral( txtNumber5.value, txtNumber6.value)">Call Function Literal</button>
+	<input type="text" id="txtSum2" placeholder="literal value" />
+	<p><i><u>Javascript code:</u></i><pre>
+	var func = function( a, b ){ return a + b };
+	
+	function callFunctoinLiteral( a, b )
+	{
+		return func( parseInt( a ), parseInt( b ) );
+	}
+	</pre></p>
+
+</body>
+</html>
