@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> User Defined - Objects</title>
+	<script type="text/javascript">
+
+	var book = new Object(); //Simple Object
+	book.bookname = "Basics in Javascript";
+	book.bookAuthor = "Gopinath R";
+
+	document.write("Book name is : " + book.bookname + '<br/>' );
+	document.write("Book Author is : " + book.bookAuthor + '<br/>' );
+
+	document.write( new Date().toDateString());
+
+	function bookPrice( price )
+	{
+		this.price = price;
+	}
+
+	function makeBook( title, author )
+	{
+		this.title = title;
+		this.author = author;
+		this.bookPrice = bookPrice; //Assign bookPrice() as property
+	}
+
+	function createBook( title, author, price )
+	{
+		var myBook = new makeBook( title, author ); //Create objeect using 'new' keyword
+		myBook.bookPrice( price );
+
+		document.getElementById( "para" ).innerHTML += "Book Title is : " + myBook.title + '<br/>';
+		document.getElementById( "para" ).innerHTML += "Book Author is : " + myBook.author + '<br/>';
+		document.getElementById( "para" ).innerHTML += "Book Price is : " + myBook.price + '<br/>';
+	}
+
+	</script>
+</head>
+<body>
+	
+	<form name="myForm" action="#" onsubmit="createBook( txtTitle.value, txtAuthor.value, txtPrice.value )">
+		Enter the book title : <input type="text" name="txtTitle" placeholder="Book Title" />
+		Enter the book author : <input type="text" name="txtAuthor" placeholder="Book Author" />
+		Enter the book price : <input type="text" name="txtPrice" placeholder="Book Price" />
+		<input type="submit" name="btnCreateBook" value="Create Book" />
+	</form>
+	<p id="para"> </p>
+</body>
+</html>

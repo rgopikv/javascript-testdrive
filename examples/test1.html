@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script type="text/javascript">
+
+
+	function makeAdder( base ) //Higher - order function
+	{
+		return function( num )
+		{
+			return base + num;
+		}
+	}
+
+	var add2 = makeAdder( 2 );
+	console.log( add2( 5 ) );
+	console.log( add2( 7 ) );
+
+	var arr = [ "gopinath", "vino", "jeeva" ];
+
+	arr.forEach( function( item ) //Array.prototype.forEach
+	{
+		console.log( item );
+	})
+
+	var names = arr.map( function( item ) //Array.prototype.map
+	{
+		return item;
+	})
+
+	var str = "Names Are " + names.map( function( item )
+	{
+		return item;
+	}).join(", ");
+
+	//var str = "Names Are " + names.map( function( item ){return item;}).join(", "); //One-Liner
+
+	console.log( str);
+
+	function prop( name )
+	{
+		return function( object )
+		{
+			return object[name];
+		}
+	}
+
+	var myName = props("myName")({myName:"Gopinath"}); //Another way for HIGHER-ORDER function
+	console.log( "My Name is ", myName );
+
+	/*var totalLength = 0; //Getting total length of each item in buffer is
+
+	for( var i = 0; i < buffers.length; i++ )
+	{
+		totalLength + = buffers[i].length;
+	} console.log( totalLength );                    For Simplest Way is!    */
+
+	var buffers = [ 10, 20, 30 ];
+	var totalLength = buffers.map( function( chunk ){
+		return chunk;
+	}).reduce( function( prev, curr){return prev + curr });
+
+	console.log( "Total length is " + totalLength );
+
+	//another way
+	var buffers = [ 10, 20, 30 ];
+	function add(a, b){return a + b};
+	var totalLength = buffers.map( function( chunk ){
+		return chunk;
+	}).reduce( add );
+
+	console.log( "Total length using add is " + totalLength );
+
+
+	//One more way - prop() - is user defined method for getting property value from given object
+	//var totalLength = buffers.map( prop( 'length' ) ).reduce( add );
+
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>
