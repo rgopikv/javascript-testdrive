@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Refresh in Javascript</title>
+	<script type="text/javascript">
+
+	function autoRefresh( time )
+	{
+		setTimeout( "location.reload( true );", time );
+	}
+
+	function pageUnLoad()
+	{
+		document.getElementById( "para" ).innerHTML = "Page  UnLoaded";
+	}
+
+	</script>
+</head>
+<body onload="autoRefresh( 2000 );" onunload="pageUnLoad()">
+
+<input type="button" name="refreshpage" value="Page Refresh" onclick="javascript:location.reload(true);"/>
+
+<p id="para">This page will refresh every 2 seconds.</p>
+
+</body>
+</html>

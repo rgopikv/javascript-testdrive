@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Events in Javascript</title>
+
+	<script type="text/javascript" src="events.js"></script>
+	<script>
+		function validate()
+		{
+			if( "" == txtName )
+				return alert('Input name should not empty..');
+			
+			alert('Input name is validated..');
+		}
+
+		function onMouseOver()
+		{
+			writeLog('MouseOver,');
+		}
+
+		function onMouseOut()
+		{
+			writeLog('MouseOut,');
+		}
+		
+		function onMouseClick()
+		{
+			writeLog('MouseClick,');
+		}
+
+		function onMouseUp()
+		{
+			writeLog('MouseUp,');
+		}
+
+		function onMouseMove()
+		{
+			writeLog('MouseMove,');
+		}
+
+		function onMouseDown()
+		{
+			writeLog('MouseDown,');
+		}
+
+
+		function writeLog( log )
+		{
+			document.getElementById('para').innerHTML += log;
+		}
+
+	</script>
+
+</head>
+<body>
+
+	<form method="GET" onsubmit="validate()" action="#" >
+		<input type="button" onclick="callAlert()" value="Call Alert"/><br/>
+		<input type="text" id="txtName" action="event.html" placeholder="Enter your name"/>
+
+		<input type="submit" value="Submit"/>
+	</form>
+	<span id="para" />
+
+	<div >
+		<input type="button" value="Button" style="height:100px; width:200px" onclick="onMouseClick()" onmouseup="onMouseUp()" onmouseover="onMouseOver()" onmouseout="onMouseOut()" onmousemove="onMouseMove()" onmousedown="onMouseDown()">
+	</div>
+
+</body>
+</html>

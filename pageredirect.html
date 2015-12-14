@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Redirect in Javascript</title>
+	<script type="text/javascript">
+
+	function pageRedirect()
+	{
+		var userInput = confirm("Do you want to redirect?");
+		if( true == userInput )
+			window.location = "http://www.google.com";
+		else
+			document.getElementById( "para" ).innerHTML += '<br/>' + " User does not want to page redirect!";
+	}
+
+	function getSearchInfo()
+	{
+		var userName = prompt("Type your search word : ", "Type your text here");
+		window.location = "https://www.google.co.in/?gfe_rd=cr&ei=IzNuVurMG7Lv8wezv5nwDQ&gws_rd=ssl#q=" + userName;
+	}
+
+	</script>
+</head>
+<body>
+	<p id="para"> Click this button to redirect Google.com </p>
+	<input type="button" name="btnGetName" value="Type your Search" onclick="getSearchInfo()" />
+	<input type="button" name="btnRedirect" value="Google.com" onclick="pageRedirect()" />
+
+</body>
+</html>

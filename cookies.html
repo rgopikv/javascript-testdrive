@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cookies in Javascript</title>
+	<script type="text/javascript">
+
+	function writeCookie()
+	{
+		firstname = escape( document.myForm.firstname.value );
+		lastname = escape( document.myForm.lastname.value );
+
+		var cookieValue = "fName=" + firstname + ";lName=" + lastname;
+
+		document.cookie = cookieValue;
+	}
+
+	function readCookie()
+	{
+		var cookieList = document.cookie;
+		var cookieArray =  cookieList.split(";");
+
+		var obj = {};
+
+		for (var i = 0; i < cookieArray.length; i++) 
+		{
+			var tempArray = cookieArray[i].split("=");
+			
+			obj.firstname = tempArray[0];
+			obj.lastname = tempArray[1];
+		};
+
+		document.getElementById("para").innerHTML += obj.firstname + " " + obj.lastname;
+	}
+
+	</script>
+
+</head>
+<body>
+
+	<form name="myForm" action="">
+		Enter Your FirstName : <input type="text" name="firstname" /><br/>
+		Enter Your LastName : <input type="text" name="lastname" /><br/>
+		<input type="button" value="Set Cookie value" onclick="writeCookie()" />//Write Cookies in local hard drive.<br/>
+		<input type="button" value="Read Cookie value" onclick="readCookie()">//Read Cookie from local hard drive.
+	</form>
+
+<p id="para" />
+
+<div id="divReadCookie" />
+
+</body>
+</html>
